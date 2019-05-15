@@ -1,0 +1,147 @@
+<!--Double navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <mdb-side-nav #sidenav class="sn-bg-1 fixed deep-purple-skin" [fixed]="true">
+  
+      <mdb-navbar-brand>
+        <!-- Logo -->
+        <li>
+          <div class="logo-wrapper waves-light">
+            <a href=""><h1 class="text-center white-text flex-center">TIERRAMAX</h1></a>
+          </div>
+        </li>
+        <!--/. Logo -->
+      </mdb-navbar-brand>
+  
+      <links>
+        <!-- Side navigation links -->
+        <li>
+          <ul class="collapsible collapsible-accordion">
+            <mdb-accordion [multiple]="false" aria-multiselectable="false">
+
+              <!-- Simple link -->
+              <mdb-accordion-item class="no-collase">
+                <mdb-accordion-item-head mdbWavesEffect routerLink="/dashboard"><mdb-icon fas icon="home"></mdb-icon>Inicio
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body></mdb-accordion-item-body>
+              </mdb-accordion-item>
+  
+              <!-- Collapsible link -->
+              <mdb-accordion-item>
+                <mdb-accordion-item-head mdbWavesEffect><mdb-icon fas icon="users-cog"></mdb-icon>Usuarios
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body>
+                  <ul>
+                    <li><a routerLink="/dashboard/addUser" mdbWavesEffect> <mdb-icon fas icon="plus-circle"></mdb-icon> Nuevo usuario</a></li>
+                    <li><a routerLink="/dashboard/adminUser" mdbWavesEffect><mdb-icon fas icon="tools"></mdb-icon> Administrar Usuarios</a></li>
+                  </ul>
+                </mdb-accordion-item-body>
+              </mdb-accordion-item>
+
+              <mdb-accordion-item>
+                <mdb-accordion-item-head mdbWavesEffect><mdb-icon fas icon="building"></mdb-icon>Propiedades
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body>
+                  <ul>
+                    <li><a routerLink="/dashboard/addProperty" mdbWavesEffect> <mdb-icon fas icon="plus-circle"></mdb-icon> Nueva Propiedad</a></li>
+                    <li><a href="" mdbWavesEffect><mdb-icon fas icon="tools"></mdb-icon> Administrar Propiedades</a></li>
+                  </ul>
+                </mdb-accordion-item-body>
+              </mdb-accordion-item>
+
+              <mdb-accordion-item>
+                <mdb-accordion-item-head mdbWavesEffect><mdb-icon fas icon="car"></mdb-icon>Vehículos
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body>
+                  <ul>
+                    <li><a routerLink="/dashboard/AddVehicles" mdbWavesEffect> <mdb-icon fas icon="plus-circle"></mdb-icon> Nuevo Vehículo</a></li>
+                    <li><a href="" mdbWavesEffect><mdb-icon fas icon="tools"></mdb-icon> Administrar Vehículos</a></li>
+                  </ul>
+                </mdb-accordion-item-body>
+              </mdb-accordion-item>
+
+              <!-- Simple link -->
+              <mdb-accordion-item class="no-collase">
+                <mdb-accordion-item-head mdbWavesEffect><mdb-icon fas icon="file-alt"></mdb-icon>Documentación
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body></mdb-accordion-item-body>
+              </mdb-accordion-item>
+
+  
+              <!-- Simple link -->
+              <mdb-accordion-item class="no-collase">
+                <mdb-accordion-item-head mdbWavesEffect><mdb-icon fas icon="envelope-open"></mdb-icon>Notificaciones
+                </mdb-accordion-item-head>
+                <mdb-accordion-item-body></mdb-accordion-item-body>
+              </mdb-accordion-item>
+  
+              <!-- Simple link -->
+              <mdb-accordion-item class="no-collase">
+                <mdb-accordion-item-head mdbWavesEffect routerLink="" ><mdb-icon fas icon="sign-out-alt"></mdb-icon>Salir</mdb-accordion-item-head>
+                <mdb-accordion-item-body></mdb-accordion-item-body>
+              </mdb-accordion-item>
+  
+            </mdb-accordion>
+          </ul>
+        </li>
+        <!--/. Side navigation links -->
+      </links>
+      <div class="sidenav-bg mask-strong"></div>
+    </mdb-side-nav>
+    <!--/. Sidebar navigation -->
+  
+    <!-- Navbar -->
+    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav"
+                [containerInside]="false">
+  
+      <navlinks class="navbar-container">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+          <a (click)="sidenav.show()" class="button-collapse"><i class="fas fa-bars"></i></a>
+        </div>
+        <!--/. SideNav slide-out button -->
+      </navlinks>
+  
+      <mdb-navbar-brand>
+        <!-- Breadcrumb-->
+        <div class="breadcrumbs breadcrumb-dn mr-auto">
+          <p>Inversiones Tierramax S.A</p>
+        </div>
+        <!--/. Breadcrumb-->
+      </mdb-navbar-brand>
+  
+      <navlinks>
+        <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
+          <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="sitemap"></mdb-icon><span
+              class="clearfix d-none d-sm-inline-block">Administrador</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user-alt"></mdb-icon> <span
+              class="clearfix d-none d-sm-inline-block">Mi cuenta</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect><mdb-icon far icon="life-ring"></mdb-icon><span
+                class="clearfix d-none d-sm-inline-block">Ayuda</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="sign-out-alt"></mdb-icon> <span
+              class="clearfix d-none d-sm-inline-block">Salir</span></a>
+          </li>
+
+        </ul>
+      </navlinks>
+    </mdb-navbar>
+    <!--/. Navbar -->
+  
+</header>
+<!--/.Double navigation-->
+  
+  <!--Main Layout-->
+  <main>
+    <div class="container-fluid mt-5">
+        <router-outlet></router-outlet>
+    </div>
+  </main>
+  <!--/Main layout-->

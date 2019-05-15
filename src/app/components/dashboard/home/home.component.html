@@ -1,0 +1,87 @@
+<div class="row">
+    <h1 class="display-4">Dashboard</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <hr class="my-4 pb-2">
+  </div>
+    
+</div>
+
+
+<div class="row">
+  <div class="col-md-8">
+
+    <!-- Nav Tabs -->
+    <mdb-tabset #staticTabs [buttonClass]="'md-tabs tabs-2'" [contentClass]="'card'">
+      <!--Panel 1-->
+      <mdb-tab heading="Propiedades">
+        <div class="row">
+          <div class="col-12">
+            <br>
+              <!-- Title -->
+              <h2 class="card-title h2">Propiedades</h2>
+            
+              <!-- Subtitle -->
+              <p class="indigo-text my-4 font-weight-bold">Conteo de Propiedades registradas</p>
+            
+
+              <div style="display: block">
+                  <canvas mdbChart
+                      [chartType]="chartType"
+                      [datasets]="chartDatasets"
+                      [labels]="chartLabels"
+                      [colors]="chartColors"
+                      [options]="chartOptions"
+                      [legend]="true"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
+                  </canvas>
+              </div>
+          </div>
+        </div>
+      </mdb-tab>
+      <!--Panel 2-->
+      <mdb-tab heading="Vehículos">
+        <div class="row">
+          <div class="col-12">
+            <br>
+              <!-- Title -->
+              <h2 class="card-title h2">Vehículos</h2>
+            
+              <!-- Subtitle -->
+              <p class="indigo-text my-4 font-weight-bold">Conteo de vehículos registradas</p>
+            
+
+              <div style="display: block">
+                  <canvas mdbChart
+                      [chartType]="chartType"
+                      [datasets]="chartDatasets"
+                      [labels]="chartLabels"
+                      [colors]="chartColors"
+                      [options]="chartOptions"
+                      [legend]="true"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
+                  </canvas>
+              </div>
+          </div>
+        </div>
+      </mdb-tab>
+
+    </mdb-tabset>
+  </div>
+
+  <div class="col-md-4">
+      <div class="list-group">
+        <a class="list-group-item active waves-light" mdbWavesEffect>
+            <h1 class="text-center text-white">Tareas</h1>
+        </a>
+        <a class="list-group-item waves-light" mdbWavesEffect>Total de Tareas <span class="badge badge-pill danger-color">36</span></a>
+        <a class="list-group-item waves-light" mdbWavesEffect>Tareas Pendientes <span class="badge badge-pill danger-color">15</span></a>
+        <a class="list-group-item waves-light" mdbWavesEffect>Tareas Terminadas <span class="badge badge-pill danger-color">21</span></a>
+        <a class="list-group-item waves-light list-group-item-danger" mdbWavesEffect>Tareas por vencer <span class="badge badge-pill danger-color">3</span> </a>
+      </div>
+  </div>
+</div>

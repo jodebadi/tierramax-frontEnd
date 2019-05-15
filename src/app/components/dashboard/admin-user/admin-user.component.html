@@ -1,0 +1,167 @@
+<!--Form with header-->
+<mdb-card>
+  
+    <!--Header-->
+    <div class="header pt-3 #4a148c purple darken-4">
+
+      <div class="row d-flex justify-content-start">
+        <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Administrar Usuarios</h3>
+      </div>
+
+    </div>
+    <!--Header-->
+
+    <mdb-card-body class="mx-4 mt-4">
+
+      <mdb-accordion [multiple]="false">
+          <mdb-accordion-item [collapsed]="true">
+            <mdb-accordion-item-head>Filtros de busqueda</mdb-accordion-item-head>
+            <mdb-accordion-item-body>
+            <!--Body-->
+            <form #frmSearchUser="ngForm" (ngSubmit)="_addFilter(frmSearchUser)">
+
+              <div class="row">
+
+                <div class="col-md-4">
+                    <label for="frmFilter">Elija un filtro</label>
+                    <select class="browser-default custom-select" id="frmFilter" name="frmFilter" ngModel required #frmFilter="ngModel" (ngModelChange)="_filterChanged($event)">
+                        <option *ngFor="let filter of chooseFilter" value="{{filter.value}}" [hidden]="!filter.show">{{filter.name}}</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4">
+
+                  <label for="frmFilter">Detalle del filtro</label>
+
+                  <div class="input-group mb-3" [hidden]="!shwName">
+                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre"
+                      aria-describedby="Nombre" name="frmName" ngModel required #frmName="ngModel">
+                    <div class="input-group-append">
+                      <button type="submit" mdbBtn color="default" outline="true" size="md" class="m-0 px-3 py-2"
+                        mdbWavesEffect>Agregar</button>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3" [hidden]="!shwLastName">
+                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido"
+                      aria-describedby="Apellido" name="frmLastName" ngModel required #frmLastName="ngModel">
+                    <div class="input-group-append">
+                      <button type="submit" mdbBtn color="default" outline="true" size="md" class="m-0 px-3 py-2"
+                        mdbWavesEffect>Agregar</button>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3" [hidden]="!shwEmail">
+                    <input type="text" class="form-control" placeholder="Correo" aria-label="Correo"
+                      aria-describedby="Correo" name="frmEmail" ngModel required #frmEmail="ngModel">
+                    <div class="input-group-append">
+                      <button type="submit" mdbBtn color="default" outline="true" size="md" class="m-0 px-3 py-2"
+                        mdbWavesEffect>Agregar</button>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3" [hidden]="!shwPhone">
+                    <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono"
+                      aria-describedby="Teléfono" name="frmPhone" ngModel required #frmPhone="ngModel">
+                    <div class="input-group-append">
+                      <button type="submit" mdbBtn color="default" outline="true" size="md" class="m-0 px-3 py-2"
+                        mdbWavesEffect>Agregar</button>
+                    </div>
+                  </div>
+
+
+                  <div class="input-group mb-3" [hidden]="!shwAccountType">
+                    <select class="browser-default custom-select" id="frmAccountType" name="frmAccountType" ngModel required #frmAccountType="ngModel" placeholder="Tipo de cuenta">
+                      <option value="Administrador">Administrador</option>
+                      <option value="Vendedor">Vendedor</option>
+                    </select>
+                    <div class="input-group-append">
+                      <button type="submit" mdbBtn color="default" outline="true" size="md" class="m-0 px-3 py-2"
+                        mdbWavesEffect>Agregar</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="frmFilter">Lista de filtros</label>
+
+                  <table mdbTable>
+                    <tbody>
+                      <tr mdbTableCol *ngFor="let fl of filterList">
+                        <td>{{fl.filter}}</td>
+                        <td>{{fl.value}}</td>
+                        <td>
+                          <a (click)='_removeFilterFromFilterList(fl.id)'>
+                              <mdb-icon fas icon="trash-alt"></mdb-icon>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+
+              <div class="text-center btnSearchAll">
+                  <button class='ml-auto #4a148c purple darken-4 white-text' (click)="_searchCustUsers()" type="button" mdbBtn color="light" mdbWavesEffect>Buscar Usuario</button> 
+              </div>
+
+            </form>
+
+          </mdb-accordion-item-body>
+        </mdb-accordion-item>
+
+      </mdb-accordion>
+
+
+      <div class="text-center btnSearchAll">
+          <button class='ml-auto #4a148c purple darken-4 white-text' (click)="_searchAllUsers()" type="button" mdbBtn color="light" mdbWavesEffect>Todos los usuarios</button> 
+      </div>
+
+
+    </mdb-card-body>
+
+</mdb-card>
+<!--/Form with header-->
+
+
+<!--Form with header-->
+<mdb-card class="cardTable">
+
+  <!--Header-->
+  <div class="header pt-3 #4a148c purple darken-4">
+
+    <div class="row d-flex justify-content-start">
+      <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Lista de Usuarios</h3>
+    </div>
+
+  </div>
+  <!--Header-->
+
+  <mdb-card-body class="mx-4 mt-4">
+
+    <table mdbTable>
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of elements">
+            <th scope="row">{{el.userId}}</th>
+            <td>{{el.name}}</td>
+            <td>{{el.lastname}}</td>
+            <td>{{el.email}}</td>
+            <td>{{el.phone}}</td>
+            <td>{{el.userType}}</td>
+            <td> <mdb-icon fas icon="check-circle" [hidden]="!el.available" ></mdb-icon> <mdb-icon fas icon="ban" [hidden]="el.available"></mdb-icon></td>
+          </tr>
+        </tbody>
+    </table>
+
+  </mdb-card-body>
+
+</mdb-card>
+<!--/Form with header-->

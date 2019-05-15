@@ -1,0 +1,388 @@
+<section class="form-simple">
+
+    <!--Form with header-->
+    <mdb-card>
+  
+      <!--Header-->
+      <div class="header pt-3 #4a148c purple darken-4">
+  
+        <div class="row d-flex justify-content-start">
+          <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Agregar Propiedad</h3>
+        </div>
+  
+      </div>
+      <!--Header-->
+  
+      <mdb-card-body class="mx-4 mt-4">
+
+        <mdb-stepper #stepper [linear]="true">
+            <mdb-step name="" [stepForm]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <input type="text" class="form-control disabled" mdbInput mdbValidate formControlName="frmAgent" value="Jose Manuel Badilla Porras" >
+                      <label for="">Agente</label>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="md-form">
+                        <mdb-select [options]="optionPropertyType" label="Tipo de Propiedad"  mdbValidate formControlName="frmPropertyType" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPropertyType.invalid && (frmPropertyType.dirty || frmPropertyType.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropertyType.valid && (frmPropertyType.dirty || frmPropertyType.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="md-form">
+                        <mdb-select [options]="optionPropertyCategory" label="Categoría de la propiedad"  mdbValidate formControlName="frmPropertyCategory" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPropertyCategory.invalid && (frmPropertyCategory.dirty || frmPropertyCategory.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropertyCategory.valid && (frmPropertyCategory.dirty || frmPropertyCategory.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="md-form">
+                        <mdb-select [options]="optionPropertyStatus" label="Estado de la propiedad"  mdbValidate formControlName="frmPropertyStatus" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPropertyStatus.invalid && (frmPropertyStatus.dirty || frmPropertyStatus.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropertyStatus.valid && (frmPropertyStatus.dirty || frmPropertyStatus.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                </div>
+
+                 <!--MATRICULA-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <hr>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>Matrícula</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-3">
+                    <div class="md-form">
+                        <mdb-select [options]="optionMatriculaProvince" label="Provincia"  mdbValidate formControlName="frmMatriculaProvince" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmMatriculaProvince.invalid && (frmMatriculaProvince.dirty || frmMatriculaProvince.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmMatriculaProvince.valid && (frmMatriculaProvince.dirty || frmMatriculaProvince.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmMatriculaFinca">
+                      <label for="">Finca</label>
+                      <mdb-error *ngIf="frmMatriculaFinca.invalid && (frmMatriculaFinca.dirty || frmMatriculaFinca.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmMatriculaFinca.valid && (frmMatriculaFinca.dirty || frmMatriculaFinca.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmMatriculaDuplicado">
+                      <label for="">Duplicado</label>
+                      <mdb-error *ngIf="frmMatriculaDuplicado.invalid && (frmMatriculaDuplicado.dirty || frmMatriculaDuplicado.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmMatriculaDuplicado.valid && (frmMatriculaDuplicado.dirty || frmMatriculaDuplicado.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmMatriculaHorizontal">
+                      <label for="">Horizontal</label>
+                      <mdb-error *ngIf="frmMatriculaHorizontal.invalid && (frmMatriculaHorizontal.dirty || frmMatriculaHorizontal.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmMatriculaHorizontal.valid && (frmMatriculaHorizontal.dirty || frmMatriculaHorizontal.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmMatriculaDerecho">
+                      <label for="">Derecho</label>
+                      <mdb-error *ngIf="frmMatriculaDerecho.invalid && (frmMatriculaDerecho.dirty || frmMatriculaDerecho.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmMatriculaDerecho.valid && (frmMatriculaDerecho.dirty || frmMatriculaDerecho.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+  
+                </div>
+
+                <!--PLANO-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <hr>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>Plano</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="md-form">
+                        <mdb-select [options]="optionMatriculaProvince" label="Provincia"  mdbValidate formControlName="frmPlanoProvincia" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPlanoProvincia.invalid && (frmPlanoProvincia.dirty || frmPlanoProvincia.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPlanoProvincia.valid && (frmPlanoProvincia.dirty || frmPlanoProvincia.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmPlanoNumero">
+                      <label for="">Número</label>
+                      <mdb-error *ngIf="frmPlanoNumero.invalid && (frmPlanoNumero.dirty || frmPlanoNumero.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmPlanoNumero.valid && (frmPlanoNumero.dirty || frmPlanoNumero.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmPlanoAnno">
+                      <label for="">Año</label>
+                      <mdb-error *ngIf="frmPlanoAnno.invalid && (frmPlanoAnno.dirty || frmPlanoAnno.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmPlanoAnno.valid && (frmPlanoAnno.dirty || frmPlanoAnno.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+    
+                </div>
+
+                <div class="row">
+  
+                  <div class="col-md-4">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmLoteOUnidad">
+                      <label for="">Númuero de lote o unidad</label>
+                      <mdb-error *ngIf="frmLoteOUnidad.invalid && (frmLoteOUnidad.dirty || frmLoteOUnidad.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmLoteOUnidad.valid && (frmLoteOUnidad.dirty || frmLoteOUnidad.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+    
+                </div>
+
+                <!--DETALLES-->
+                <div class="row">
+                    <div class="col-md-12">
+                      <hr>
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>Detalles</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <div class="md-form">
+                        <mdb-select [options]="opcionListTypes" label="Tipo de listado"  mdbValidate formControlName="frmTipoListado" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmTipoListado.invalid && (frmTipoListado.dirty || frmTipoListado.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmTipoListado.valid && (frmTipoListado.dirty || frmTipoListado.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="md-form">
+
+                      <mdb-date-picker label="Fecha de vencimiento" mdbValidate formControlName="frmTipoListadoExp" ></mdb-date-picker>
+                      <mdb-error *ngIf="frmTipoListadoExp.invalid && (frmTipoListadoExp.dirty || frmTipoListadoExp.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmTipoListadoExp.valid && (frmTipoListadoExp.dirty || frmTipoListadoExp.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+    
+                </div>
+
+                <!--DIRECCION-->
+                <div class="row">
+                    <div class="col-md-12">
+                      <hr>
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>Dirección</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-3">
+                    <div class="md-form">
+                        <mdb-select [options]="opcionPais" label="País"  mdbValidate formControlName="frmPais" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPais.invalid && (frmPais.dirty || frmPais.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPais.valid && (frmPais.dirty || frmPais.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="md-form">
+                        <mdb-select [options]="optionMatriculaProvince" label="Provincia"  mdbValidate formControlName="frmProvincia" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmProvincia.invalid && (frmProvincia.dirty || frmProvincia.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmProvincia.valid && (frmProvincia.dirty || frmProvincia.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="md-form">
+                        <mdb-select [options]="opcionCanton" label="Cantón"  mdbValidate formControlName="frmCanton" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmCanton.invalid && (frmCanton.dirty || frmCanton.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmCanton.valid && (frmCanton.dirty || frmCanton.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="md-form">
+                          <mdb-select [options]="opcionDistrito" label="Distrito"  mdbValidate formControlName="frmDistrito" [allowClear]="true" ></mdb-select>
+                          <mdb-error *ngIf="frmDistrito.invalid && (frmDistrito.dirty || frmDistrito.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmDistrito.valid && (frmDistrito.dirty || frmDistrito.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+    
+                </div>
+
+                
+              </form>
+              <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUAR</button>
+            </mdb-step>
+
+
+            <mdb-step name="Step 2" [stepForm]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <div class="row">
+                  <div class="col-md-6">
+                    <!-- Jumbotron -->
+                    <div class="jumbotron text-center blue-grey lighten-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div class="md-form">
+                                  <mdb-select [options]="opcionYesAndNoAwnswer" label="Venta"  mdbValidate formControlName="frmVenta" [allowClear]="true" ></mdb-select>
+                                  <mdb-error *ngIf="frmVenta.invalid && (frmVenta.dirty || frmVenta.touched)">*Requerido</mdb-error>
+                                  <mdb-success *ngIf="frmVenta.valid && (frmVenta.dirty || frmVenta.touched)">Correcto</mdb-success>
+                              </div>
+                            </div>
+                        </div>
+                      
+                  
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="md-form">
+                                <mdb-select [options]="opcionCurrency" label="Moneda"  mdbValidate formControlName="frmVentaMoneda" [allowClear]="true" ></mdb-select>
+                                <mdb-error *ngIf="frmVentaMoneda.invalid && (frmVentaMoneda.dirty || frmVentaMoneda.touched)">*Requerido</mdb-error>
+                                <mdb-success *ngIf="frmVentaMoneda.valid && (frmVentaMoneda.dirty || frmVentaMoneda.touched)">Correcto</mdb-success>
+                            </div>
+
+                            <div class="md-form">
+                                <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVentaPrecio" >
+                                <label for="">Precio</label>
+                                <mdb-error *ngIf="frmVentaPrecio.invalid && (frmVentaPrecio.dirty || frmVentaPrecio.touched)">*Requerido</mdb-error>
+                                <mdb-success *ngIf="frmVentaPrecio.valid && (frmVentaPrecio.dirty || frmVentaPrecio.touched)">Correcto</mdb-success>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="md-form">
+                                <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVentaComisionCompleta" >
+                                <label for="">Comisión Completa</label>
+                                <mdb-error *ngIf="frmVentaComisionCompleta.invalid && (frmVentaComisionCompleta.dirty || frmVentaComisionCompleta.touched)">*Requerido</mdb-error>
+                                <mdb-success *ngIf="frmVentaComisionCompleta.valid && (frmVentaComisionCompleta.dirty || frmVentaComisionCompleta.touched)">Correcto</mdb-success>
+                            </div>
+
+                            <div class="md-form">
+                                <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVentaComisionComprador" >
+                                <label for="">Comisión Comprador</label>
+                                <mdb-error *ngIf="frmVentaComisionComprador.invalid && (frmVentaComisionComprador.dirty || frmVentaComisionComprador.touched)">*Requerido</mdb-error>
+                                <mdb-success *ngIf="frmVentaComisionComprador.valid && (frmVentaComisionComprador.dirty || frmVentaComisionComprador.touched)">Correcto</mdb-success>
+                            </div>
+                          </div>
+                        </div>
+                      
+                    </div>
+                    <!-- Jumbotron -->
+                  </div>
+
+                  <div class="col-md-6">
+                      <!-- Jumbotron -->
+                      <div class="jumbotron text-center blue-grey lighten-5">
+                          <div class="row">
+                              <div class="col-md-12">
+                                <div class="md-form">
+                                    <mdb-select [options]="opcionYesAndNoAwnswer" label="Renta"  mdbValidate formControlName="frmRenta" [allowClear]="true" ></mdb-select>
+                                    <mdb-error *ngIf="frmRenta.invalid && (frmRenta.dirty || frmRenta.touched)">*Requerido</mdb-error>
+                                    <mdb-success *ngIf="frmRenta.valid && (frmRenta.dirty || frmRenta.touched)">Correcto</mdb-success>
+                                </div>
+                              </div>
+                          </div>
+                        
+                    
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="md-form">
+                                  <mdb-select [options]="opcionCurrency" label="Moneda"  mdbValidate formControlName="frmRentaMoneda" [allowClear]="true" ></mdb-select>
+                                  <mdb-error *ngIf="frmRentaMoneda.invalid && (frmRentaMoneda.dirty || frmRentaMoneda.touched)">*Requerido</mdb-error>
+                                  <mdb-success *ngIf="frmRentaMoneda.valid && (frmRentaMoneda.dirty || frmRentaMoneda.touched)">Correcto</mdb-success>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="md-form">
+                                  <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmRentaFeeMensual" >
+                                  <label for="">Costo de la renta mensual</label>
+                                  <mdb-error *ngIf="frmRentaFeeMensual.invalid && (frmRentaFeeMensual.dirty || frmRentaFeeMensual.touched)">*Requerido</mdb-error>
+                                  <mdb-success *ngIf="frmRentaFeeMensual.valid && (frmRentaFeeMensual.dirty || frmRentaFeeMensual.touched)">Correcto</mdb-success>
+                              </div>
+  
+                              <div class="md-form">
+                                  <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmRentaDeposito" >
+                                  <label for="">Depósito de renta</label>
+                                  <mdb-error *ngIf="frmRentaDeposito.invalid && (frmRentaDeposito.dirty || frmRentaDeposito.touched)">*Requerido</mdb-error>
+                                  <mdb-success *ngIf="frmRentaDeposito.valid && (frmRentaDeposito.dirty || frmRentaDeposito.touched)">Correcto</mdb-success>
+                              </div>
+                            </div>
+                          </div>
+                        
+                      </div>
+                      <!-- Jumbotron -->
+                  </div>
+                </div>
+              </form>
+              <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUE</button>
+              <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()">BACK</button>
+            </mdb-step>
+
+
+            <mdb-step name="Step 3" label="Step 3 label">
+              <p class="pl-2">Finish!</p>
+              <div class="step-actions">
+                <button mdbBtn  size="sm" color="primary" (click)="onSubmit()">SUBMIT</button>
+              </div>
+            </mdb-step>
+
+
+        </mdb-stepper>
+
+        <!--Body-->
+      </mdb-card-body>
+  
+    </mdb-card>
+    <!--/Form with header-->
+
+    
+  
+</section>

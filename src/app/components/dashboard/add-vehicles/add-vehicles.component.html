@@ -1,0 +1,408 @@
+<section class="form-simple">
+
+    <!--Form with header-->
+    <mdb-card>
+  
+      <!--Header-->
+      <div class="header pt-3 #4a148c purple darken-4">
+  
+        <div class="row d-flex justify-content-start">
+          <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Agregar Vehículo</h3>
+        </div>
+  
+      </div>
+      <!--Header-->
+  
+      <mdb-card-body class="mx-4 mt-4">
+
+        <mdb-stepper #stepper [linear]="true">
+            <mdb-step name="" [stepForm]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+
+                <!--Agente-->
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <input type="text" class="form-control disabled" mdbInput mdbValidate formControlName="frmAgent" value="Jose Manuel Badilla Porras" >
+                      <label for="">Agente</label>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <!--Nombre del propietario-->
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmPropietarioNombre">
+                      <label for="">Nombre del propietario</label>
+                      <mdb-error *ngIf="frmPropietarioNombre.invalid && (frmPropietarioNombre.dirty || frmPropietarioNombre.touched)">*Requerido</mdb-error>
+                      <mdb-success *ngIf="frmPropietarioNombre.valid && (frmPropietarioNombre.dirty || frmPropietarioNombre.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!--Cedula-->
+                <div class="row">
+
+                  <!--Tipo de cedula-->
+                  <div class="col-md-6">
+                    <div class="md-form">
+                        <mdb-select [options]="optionIdTypes" label="Tipo de Cédula"  mdbValidate formControlName="frmPropietarioTipoCedula" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmPropietarioTipoCedula.invalid && (frmPropietarioTipoCedula.dirty || frmPropietarioTipoCedula.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropietarioTipoCedula.valid && (frmPropietarioTipoCedula.dirty || frmPropietarioTipoCedula.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+
+                  <!--Cedula-->
+                  <div class="col-md-6">
+                      <div class="md-form">
+                        <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmPropietarioCedula">
+                        <label for="">Número de Cédula</label>
+                        <mdb-error *ngIf="frmPropietarioCedula.invalid && (frmPropietarioCedula.dirty || frmPropietarioCedula.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropietarioCedula.valid && (frmPropietarioCedula.dirty || frmPropietarioCedula.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+
+                </div>
+
+                 <!--Proporcion-->
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="md-form">
+                        <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmPropertyproporcion">
+                        <label for="">Proporción<nav></nav></label>
+                        <mdb-error *ngIf="frmPropertyproporcion.invalid && (frmPropertyproporcion.dirty || frmPropertyproporcion.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmPropertyproporcion.valid && (frmPropertyproporcion.dirty || frmPropertyproporcion.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+                </div>                
+              </form>
+              <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUAR</button>
+            </mdb-step>
+
+
+            <mdb-step name="" [stepForm]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+
+
+                <!--PLACA/MARCA/ESTILO/CARROCERIA-->
+                <div class="row">
+
+                  <!--PLACA-->
+                  <div class="col-md-3">
+                      <div class="md-form">
+                        <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoPlaca">
+                        <label for="">Número de Placa</label>
+                        <mdb-error *ngIf="frmVehiculoPlaca.invalid && (frmVehiculoPlaca.dirty || frmVehiculoPlaca.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmVehiculoPlaca.valid && (frmVehiculoPlaca.dirty || frmVehiculoPlaca.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+
+                  <!--MARCA-->
+                  <div class="col-md-3">
+                    <div class="md-form">
+                        <mdb-select [options]="optionVehiclesBrands" label="Marca"  mdbValidate formControlName="frmVehiculoMarca" [allowClear]="true" ></mdb-select>
+                        <mdb-error *ngIf="frmVehiculoMarca.invalid && (frmVehiculoMarca.dirty || frmVehiculoMarca.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmVehiculoMarca.valid && (frmVehiculoMarca.dirty || frmVehiculoMarca.touched)">Correcto</mdb-success>
+                    </div>
+                  </div>
+  
+                  <!--ESTILO-->
+                  <div class="col-md-3">
+                      <div class="md-form">
+                        <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoEstilo">
+                        <label for="">Estilo</label>
+                        <mdb-error *ngIf="frmVehiculoEstilo.invalid && (frmVehiculoEstilo.dirty || frmVehiculoEstilo.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmVehiculoEstilo.valid && (frmVehiculoEstilo.dirty || frmVehiculoEstilo.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+
+                  <!--Carroceria-->
+                  <div class="col-md-3">
+                      <div class="md-form">
+                        <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoCarroceria">
+                        <label for="">Carrocería</label>
+                        <mdb-error *ngIf="frmVehiculoCarroceria.invalid && (frmVehiculoCarroceria.dirty || frmVehiculoCarroceria.touched)">*Requerido</mdb-error>
+                        <mdb-success *ngIf="frmVehiculoCarroceria.valid && (frmVehiculoCarroceria.dirty || frmVehiculoCarroceria.touched)">Correcto</mdb-success>
+                      </div>
+                  </div>
+  
+                </div>
+
+                <!--CAPACIDAD/ANNO/COLOR/CILINDROS-->
+                <div class="row">
+
+                    <!--CAPACIDAD-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoCapacidad">
+                          <label for="">Capacidad</label>
+                          <mdb-error *ngIf="frmVehiculoCapacidad.invalid && (frmVehiculoCapacidad.dirty || frmVehiculoCapacidad.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoCapacidad.valid && (frmVehiculoCapacidad.dirty || frmVehiculoCapacidad.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+
+                     <!--ANNO-->
+                     <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoAnno">
+                          <label for="">Año</label>
+                          <mdb-error *ngIf="frmVehiculoAnno.invalid && (frmVehiculoAnno.dirty || frmVehiculoAnno.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoAnno.valid && (frmVehiculoAnno.dirty || frmVehiculoAnno.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+  
+                    <!--COLOR-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoColor">
+                          <label for="">Color</label>
+                          <mdb-error *ngIf="frmVehiculoColor.invalid && (frmVehiculoColor.dirty || frmVehiculoColor.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoColor.valid && (frmVehiculoColor.dirty || frmVehiculoColor.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+  
+                    <!--CILINDRIS-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoCilindros">
+                          <label for="">Número de Cilindros</label>
+                          <mdb-error *ngIf="frmVehiculoCilindros.invalid && (frmVehiculoCilindros.dirty || frmVehiculoCilindros.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoCilindros.valid && (frmVehiculoCilindros.dirty || frmVehiculoCilindros.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+    
+                </div>
+
+                <!--CILINDRADA/PESO.PUERTAS-->
+                <div class="row">
+
+                    <!--CILINDRADA-->
+                    <div class="col-md-4">
+                        <div class="md-form">
+                          <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoCilindrada">
+                          <label for="">Cilindrada (c.c)</label>
+                          <mdb-error *ngIf="frmVehiculoCilindrada.invalid && (frmVehiculoCilindrada.dirty || frmVehiculoCilindrada.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoCilindrada.valid && (frmVehiculoCilindrada.dirty || frmVehiculoCilindrada.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+
+                     <!--PESO-->
+                     <div class="col-md-4">
+                        <div class="md-form">
+                          <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoPeso">
+                          <label for="">Peso (kg)</label>
+                          <mdb-error *ngIf="frmVehiculoPeso.invalid && (frmVehiculoPeso.dirty || frmVehiculoPeso.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoPeso.valid && (frmVehiculoPeso.dirty || frmVehiculoPeso.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+  
+                    <!--PUERTAS-->
+                    <div class="col-md-4">
+                        <div class="md-form">
+                          <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoPuertas">
+                          <label for="">Cantidad de Puertas</label>
+                          <mdb-error *ngIf="frmVehiculoPuertas.invalid && (frmVehiculoPuertas.dirty || frmVehiculoPuertas.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoPuertas.valid && (frmVehiculoPuertas.dirty || frmVehiculoPuertas.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+    
+                </div>
+
+
+              </form>
+              <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUE</button>
+              <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()">BACK</button>
+            </mdb-step>
+
+            <mdb-step name="" [stepForm]="thirdFormGroup">
+                <form [formGroup]="thirdFormGroup">
+  
+  
+                  <!--uso/combustible/traccion/caja-->
+                  <div class="row">
+  
+                    <!--USO-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoUso">
+                          <label for="">Uso</label>
+                          <mdb-error *ngIf="frmVehiculoUso.invalid && (frmVehiculoUso.dirty || frmVehiculoUso.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoUso.valid && (frmVehiculoUso.dirty || frmVehiculoUso.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+  
+                    <!--Combustible-->
+                    <div class="col-md-3">
+                      <div class="md-form">
+                          <mdb-select [options]="optionGasTypes" label="Combustible"  mdbValidate formControlName="frmVehiculoCombustible" [allowClear]="true" ></mdb-select>
+                          <mdb-error *ngIf="frmVehiculoCombustible.invalid && (frmVehiculoCombustible.dirty || frmVehiculoCombustible.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoCombustible.valid && (frmVehiculoCombustible.dirty || frmVehiculoCombustible.touched)">Correcto</mdb-success>
+                      </div>
+                    </div>
+    
+                    <!--traccion-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                          <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoTraccion">
+                          <label for="">Tracción</label>
+                          <mdb-error *ngIf="frmVehiculoTraccion.invalid && (frmVehiculoTraccion.dirty || frmVehiculoTraccion.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoTraccion.valid && (frmVehiculoTraccion.dirty || frmVehiculoTraccion.touched)">Correcto</mdb-success>
+                        </div>
+                    </div>
+  
+                    <!--CAJA-->
+                    <div class="col-md-3">
+                        <div class="md-form">
+                            <mdb-select [options]="optionTransmissionTypes" label="Caja de Cambios"  mdbValidate formControlName="frmVehiculoCajaDeCambios" [allowClear]="true" ></mdb-select>
+                            <mdb-error *ngIf="frmVehiculoCajaDeCambios.invalid && (frmVehiculoCajaDeCambios.dirty || frmVehiculoCajaDeCambios.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoCajaDeCambios.valid && (frmVehiculoCajaDeCambios.dirty || frmVehiculoCajaDeCambios.touched)">Correcto</mdb-success>
+                        </div>
+                      </div>
+    
+                  </div>
+  
+                  <!--KM/CHASIS/MOTORNUM/MOTORMARCA-->
+                  <div class="row">
+  
+                      <!--km-->
+                      <div class="col-md-3">
+                          <div class="md-form">
+                            <input type="number" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoKilometraje">
+                            <label for="">Kilometraje</label>
+                            <mdb-error *ngIf="frmVehiculoKilometraje.invalid && (frmVehiculoKilometraje.dirty || frmVehiculoKilometraje.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoKilometraje.valid && (frmVehiculoKilometraje.dirty || frmVehiculoKilometraje.touched)">Correcto</mdb-success>
+                          </div>
+                      </div>
+  
+                       <!--chasis-->
+                       <div class="col-md-3">
+                          <div class="md-form">
+                            <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoNumeroChasis">
+                            <label for="">Número de Chasis</label>
+                            <mdb-error *ngIf="frmVehiculoNumeroChasis.invalid && (frmVehiculoNumeroChasis.dirty || frmVehiculoNumeroChasis.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoNumeroChasis.valid && (frmVehiculoNumeroChasis.dirty || frmVehiculoNumeroChasis.touched)">Correcto</mdb-success>
+                          </div>
+                      </div>
+    
+                      <!--num motor-->
+                      <div class="col-md-3">
+                          <div class="md-form">
+                            <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoNumeroDeMotor">
+                            <label for="">Número de Motor</label>
+                            <mdb-error *ngIf="frmVehiculoNumeroDeMotor.invalid && (frmVehiculoNumeroDeMotor.dirty || frmVehiculoNumeroDeMotor.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoNumeroDeMotor.valid && (frmVehiculoNumeroDeMotor.dirty || frmVehiculoNumeroDeMotor.touched)">Correcto</mdb-success>
+                          </div>
+                      </div>
+    
+                      <!--motor marca-->
+                      <div class="col-md-3">
+                          <div class="md-form">
+                            <input type="text" class="form-control" mdbInput mdbValidate formControlName="frmVehiculoMarcaDelMotor">
+                            <label for="">Marca del Motor</label>
+                            <mdb-error *ngIf="frmVehiculoMarcaDelMotor.invalid && (frmVehiculoMarcaDelMotor.dirty || frmVehiculoMarcaDelMotor.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoMarcaDelMotor.valid && (frmVehiculoMarcaDelMotor.dirty || frmVehiculoMarcaDelMotor.touched)">Correcto</mdb-success>
+                          </div>
+                      </div>
+      
+                  </div>
+  
+  
+                </form>
+                <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUE</button>
+                <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()">BACK</button>
+            </mdb-step>
+
+            <mdb-step name="" [stepForm]="fourthFormGroup">
+                <form [formGroup]="fourthFormGroup">
+  
+  
+                  <!--prenda/judiciales/anotaciones-->
+                  <div class="row">
+  
+                    <!--PRENDA-->
+                    <div class="col-md-4">
+                      <div class="md-form">
+                          <mdb-select [options]="optionLegalTypes" label="Gravámenes Prendarios"  mdbValidate formControlName="frmVehiculoGravamenesPrendarios" [allowClear]="true" ></mdb-select>
+                          <mdb-error *ngIf="frmVehiculoGravamenesPrendarios.invalid && (frmVehiculoGravamenesPrendarios.dirty || frmVehiculoGravamenesPrendarios.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoGravamenesPrendarios.valid && (frmVehiculoGravamenesPrendarios.dirty || frmVehiculoGravamenesPrendarios.touched)">Correcto</mdb-success>
+                      </div>
+                    </div>
+  
+                    <!--JUDICIALES-->
+                    <div class="col-md-4">
+                      <div class="md-form">
+                          <mdb-select [options]="optionLegalTypes" label="Gravámenes Judiciales"  mdbValidate formControlName="frmVehiculoGravamenesJudiciales" [allowClear]="true" ></mdb-select>
+                          <mdb-error *ngIf="frmVehiculoGravamenesJudiciales.invalid && (frmVehiculoGravamenesJudiciales.dirty || frmVehiculoGravamenesJudiciales.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoGravamenesJudiciales.valid && (frmVehiculoGravamenesJudiciales.dirty || frmVehiculoGravamenesJudiciales.touched)">Correcto</mdb-success>
+                      </div>
+                    </div>
+
+                    <!--ANOTACIONES-->
+                    <div class="col-md-4">
+                      <div class="md-form">
+                          <mdb-select [options]="optionLegalTypes" label="Anotaciones"  mdbValidate formControlName="frmVehiculoAnotaciones" [allowClear]="true" ></mdb-select>
+                          <mdb-error *ngIf="frmVehiculoAnotaciones.invalid && (frmVehiculoAnotaciones.dirty || frmVehiculoAnotaciones.touched)">*Requerido</mdb-error>
+                          <mdb-success *ngIf="frmVehiculoAnotaciones.valid && (frmVehiculoAnotaciones.dirty || frmVehiculoAnotaciones.touched)">Correcto</mdb-success>
+                      </div>
+                    </div>
+    
+
+
+    
+                  </div>
+
+                   <!--infracciones/levantamientos-->
+                   <div class="row">
+  
+                      <!--Infracciones-->
+                      <div class="col-md-4">
+                        <div class="md-form">
+                            <mdb-select [options]="optionLegalTypes" label="Infracciones"  mdbValidate formControlName="frmVehiculoInfracciones" [allowClear]="true" ></mdb-select>
+                            <mdb-error *ngIf="frmVehiculoInfracciones.invalid && (frmVehiculoInfracciones.dirty || frmVehiculoInfracciones.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoInfracciones.valid && (frmVehiculoInfracciones.dirty || frmVehiculoInfracciones.touched)">Correcto</mdb-success>
+                        </div>
+                      </div>
+    
+                      <!--Levantamientos-->
+                      <div class="col-md-4">
+                        <div class="md-form">
+                            <mdb-select [options]="optionLegalTypes" label="Levantamientos"  mdbValidate formControlName="frmVehiculoLevantamientos" [allowClear]="true" ></mdb-select>
+                            <mdb-error *ngIf="frmVehiculoLevantamientos.invalid && (frmVehiculoLevantamientos.dirty || frmVehiculoLevantamientos.touched)">*Requerido</mdb-error>
+                            <mdb-success *ngIf="frmVehiculoLevantamientos.valid && (frmVehiculoLevantamientos.dirty || frmVehiculoLevantamientos.touched)">Correcto</mdb-success>
+                        </div>
+                      </div>
+      
+                    </div>
+
+  
+  
+                </form>
+                <button mdbBtn size="sm" color="primary" (click)="stepper.next()">CONTINUE</button>
+                <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()">BACK</button>
+            </mdb-step>
+
+              
+            <mdb-step name="" label="">
+              <p class="pl-2">Has completado todos los datos necesarios satisfactoriamente, si los datos son los correctos proceda a guardar la información del vehículo.</p>
+              <div class="step-actions">
+                <button mdbBtn  size="sm" color="primary" (click)="onSubmit()">GUARDAR</button>
+              </div>
+            </mdb-step>
+          
+
+        </mdb-stepper>
+
+        <!--Body-->
+      </mdb-card-body>
+  
+    </mdb-card>
+    <!--/Form with header-->
+
+    
+  
+</section>

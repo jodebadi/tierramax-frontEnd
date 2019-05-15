@@ -1,0 +1,98 @@
+<section class="form-simple">
+
+    <!--Form with header-->
+    <mdb-card>
+  
+      <!--Header-->
+      <div class="header pt-3 #4a148c purple darken-4">
+  
+        <div class="row d-flex justify-content-start">
+          <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Agregar Usuario</h3>
+        </div>
+  
+      </div>
+      <!--Header-->
+  
+      <mdb-card-body class="mx-4 mt-4">
+  
+        <!--Body-->
+        <form #frmAddUser="ngForm" (ngSubmit)="onSubmit(frmAddUser)">
+
+
+          <!--NOMBRE / APELLIDO-->
+          <div class="row">
+
+            <div class="col-md-6">
+                <div class="md-form">
+                  <input type="text" id="frmNombre" class="form-control" name="frmNombre" ngModel required #frmNombre="ngModel" mdbInput>
+                  <label for="frmNombre">Nombre</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="md-form">
+                  <input type="text" id="frmApellido" class="form-control" name="frmApellido" ngModel required #frmApellido="ngModel" mdbInput>
+                  <label for="frmApellido">Apellido</label>
+                </div>
+            </div>
+
+          </div>
+
+          <!--CORREO / TELEFONO-->
+          <div class="row">
+
+              <div class="col-md-6">
+                  <div class="md-form">
+                    <input type="email" id="frmEmail" class="form-control" name="frmEmail" ngModel required #frmEmail="ngModel" mdbInput>
+                    <label for="frmEmail">Correo</label>
+                  </div>
+              </div>
+  
+              <div class="col-md-6">
+                  <div class="md-form">
+                    <input type="text" id="frmTelefono" class="form-control" name="frmTelefono" ngModel required #frmTelefono="ngModel" mdbInput>
+                    <label for="frmTelefono">Teléfono</label>
+                  </div>
+              </div>
+  
+          </div>
+
+          <!--CONTRASENA-->
+          <div class="row">
+
+              <div class="col-md-6">
+                  <div class="md-form">
+                    <input type="password" id="frmPwd" class="form-control" name="frmPwd" ngModel required #frmPwd="ngModel" mdbInput>
+                    <label for="frmPwd">Contraseña</label>
+                  </div>
+              </div>
+  
+              <div class="col-md-6">
+                  <div class="md-form">
+                    <input type="password" id="frmPwdConfirm" class="form-control" name="frmPwdConfirm" ngModel required #frmPwdConfirm="ngModel" mdbInput>
+                    <label for="frmPwdConfirm">Confirmar Contraseña</label>
+                  </div>
+              </div>
+  
+          </div>
+
+
+          <div class="md-form">
+              <select class="browser-default custom-select" id="frmAccountType" name="frmAccountType" ngModel required #frmAccountType="ngModel">
+                  <option selected>Tipo de cuenta</option>
+                  <option value="1">Administrador</option>
+                  <option value="1">Vendedor</option>
+              </select>
+          </div>  
+
+          <div class="text-center mb-4">
+              <button type="submit" mdbBtn color="default" block="true" class="z-depth-2">Agregar Usuario</button>
+          </div>
+        </form>
+
+      </mdb-card-body>
+  
+    </mdb-card>
+    <!--/Form with header-->
+  
+</section>

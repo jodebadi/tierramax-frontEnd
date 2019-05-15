@@ -1,0 +1,21 @@
+<div class="modal-content">
+  <div class="modal-header danger-color">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title w-100" id="myModalLabel">{{heading}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="flex-center">
+        <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+    </div>
+      <div class="text-center">
+        <h5>{{ content.heading }}</h5>
+        <p>{{ content.description }}</p>
+      </div>
+      
+  </div>
+  <div class="modal-footer">
+    <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Aceptar</button>
+  </div>
+</div>
